@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | The Home Doctor Guide</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- Root Variables (Copied from your main page) --- */
+        :root {
+            --primary-red: #DF474F; 
+            --primary-red-dark: #c93e47; 
+            --primary-red-light: #e86169; 
+            --primary-red-rgb: 223, 71, 79; 
+            --glow-color: #d2d2d2;
+            --glow-color-rgb: 210, 210, 210; 
+            --dark-blue: #222222; 
+            --dark-text: #333333;
+            --gray-text: #555555;
+            --cream: #ffffff;
+            --light-bg: #f7f7f7;
+            --border-stroke: #c6c6c6; 
+            --border: #e8e8e8; 
+            --yellow-highlight: #ffc107;
+            --success-green: #DF474F; 
+            --dark-bg: #1a1a1a;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body { 
+            font-family: Georgia, 'Times New Roman', serif;
+            background-color: var(--cream); 
+            color: var(--dark-text); 
+            line-height: 1.7; 
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        h1, h2, h3, h4, .logo-text, .nav-button, .cta-button, .cta-button-final, .section-badge {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        h1 { 
+            font-size: clamp(2rem, 5vw, 2.75rem); 
+            margin-bottom: 1rem; 
+            font-weight: 800;
+            color: #FFFFFF; /* White for dark header */
+        }
+
+        .container { width: 90%; max-width: 800px; margin: 0 auto; }
+        
+        main {
+            flex-grow: 1; /* Pushes footer to the bottom */
+        }
+
+        /* --- NEW HEADER STYLE --- */
+        .contact-header { 
+            padding: 4rem 0; 
+            background-color: var(--dark-bg); /* Matches footer */
+            text-align: center;
+        }
+        
+        .contact-content {
+            padding: 4rem 0;
+        }
+        
+        .contact-content p { 
+            margin-bottom: 1.5rem; 
+            font-size: 1.1rem;
+            color: var(--gray-text);
+        }
+        .contact-content p a {
+            color: var(--primary-red);
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .contact-content p a:hover {
+            text-decoration: underline;
+        }
+        .contact-content strong { 
+            color: var(--dark-blue); 
+        }
+
+        /* --- 'LIFT & GLOW' BUTTON STYLE --- */
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 1rem;
+            background: linear-gradient(180deg, var(--primary-red-light) 0%, var(--primary-red) 100%);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease; 
+            border: none;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 
+                        inset 0 -1px 1px rgba(0,0,0,0.2), 
+                        0 0 15px rgba(var(--glow-color-rgb), 0.5); 
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+        
+        .back-button:hover {
+            background: var(--primary-red-dark);
+            transform: translateY(-3px); 
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 
+                        inset 0 -1px 1px rgba(0,0,0,0.2), 
+                        0 0 25px rgba(var(--glow-color-rgb), 0.7); 
+        }
+        
+        /* --- Footer (Copied from main page) --- */
+        footer { 
+            background: #1a1a1a; 
+            color: rgba(255, 255, 255, 0.9); 
+            text-align: center; 
+            padding: 50px 0 30px; 
+        }
+        .footer-content {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .footer-disclosure {
+            background: rgba(var(--primary-red-rgb), 0.1);
+            border: 1px solid rgba(var(--primary-red-rgb), 0.3);
+            border-radius: 8px;
+            padding: 20px 30px;
+            margin-bottom: 25px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .footer-disclosure p {
+            margin: 0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.85);
+        }
+        .footer-disclosure strong {
+            color: var(--yellow-highlight);
+        }
+        .footer-medical-disclaimer {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            max-width: 900px;
+            margin: 0 auto 20px;
+            color: rgba(255, 255, 255, 0.75);
+        }
+        .footer-copyright {
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem 1.5rem;
+        }
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.9rem;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+        .footer-links a:hover {
+            color: var(--yellow-highlight);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="contact-header">
+        <div class="container">
+            <h1>Contact Us</h1>
+        </div>
+    </header>
+
+    <main>
+        <section class="contact-content">
+            <div class="container">
+                <p>Thank you for visiting this resource page. We are passionate about sharing well-researched information on medical self-reliance and preparedness.</p>
+                
+                <p>If you have a question specifically about the information presented on this website, you can reach us at the following email address:</p>
+                
+                <p><strong><a href="mailto:contact@yourdomain.com">contact@yourdomain.com</a></strong></p>
+                
+                <p><strong>Please Note:</strong> This email is for inquiries related to this informational website only. For any questions regarding product purchasing, digital access, billing, or customer support for "The Home Doctor," please use the contact information provided on the official product website.</p>
+
+                <a href="index.html" class="back-button">
+                    <i class="fas fa-arrow-left"></i>
+                    Back to The Home Doctor Guide
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-disclosure">
+                    <p><strong>Affiliate Disclosure:</strong> As an affiliate, I may earn a commission from qualifying purchases made through the links on this page at no additional cost to you. I only recommend products and resources I genuinely believe can help families develop medical self-reliance and emergency preparedness skills.</p>
+                </div>
+
+                <p class="footer-medical-disclaimer">
+                    <strong>Medical Disclaimer:</strong> This information and the referenced guide are for educational purposes only and are not a substitute for professional medical advice, diagnosis, or treatment. The content is designed for situations where professional medical help is delayed or unavailable. In any medical emergency, your first action should always be to call 911 or your local emergency number. Always consult with qualified healthcare professionals for medical advice and treatment decisions.
+                </p>
+
+                <p class="footer-copyright">
+                    &copy; <span id="year"></span> The Home Doctor Guide Resource. All rights reserved.
+                </p>
+            </div>
+            
+            <div class="footer-links">
+                <a href="privacy.html" target="_blank">Privacy Policy</a> <a href="terms.html" target="_blank">Terms of Service</a> <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Automatically update the copyright year
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>
